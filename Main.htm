@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        body
+        {
+            height: 100vh;
+            display: flex;
+        }
+        
+        #modal-overlay
+        {
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            display: none;
+            align-items: center;
+        }
+        
+        #modal-overlay #modal
+        {
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+        .button
+        {
+            height: 40px;
+            width:100px;
+            padding:10px;
+            font-size:1.1em;
+            color:White;
+            border:1px solid rgba(0, 0, 0, 0.2);            ;
+            border-radius:5px;
+            cursor:pointer;
+            color:Black;
+        }
+        
+
+    </style>
+    <script language="javascript" type="text/javascript">
+        function showModal(title) {
+
+            document.getElementById("modal-header-title").innerHTML = title;
+            document.getElementById("modal-overlay").style.display = "flex";
+        }
+
+        function confirm(message) {
+            setResponse(message);
+        }
+
+        function cancel(message) {
+            setResponse(message);
+        }
+
+        function setResponse(response) {
+            document.getElementById("responsespan").innerHTML = "You clicked " + response;
+            document.getElementById("modal-overlay").style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <button id="open-modal" class="button" onclick="showModal('Are you sure you want to continue?')">
+            Click Me</button>
+    </div>
+    <br />
+    <div>
+        <span id="responsespan"></span>
+    </div>
+    <div id="modal-overlay">
+        <div id="modal">
+            <div id="modal-header">
+            </div>
+            <div id="modal-content;" style="margin-top: 10%;text-align:center;">
+                <h2 id="modal-header-title">
+                </h2>
+            </div>
+            <div id="model-footer">
+                <div id="modal-footer content" style="margin-top: 20%;">
+                    <button id="btnYes" class="button" style="margin-left: 30%;" onclick="confirm('Yes')">
+                        Yes</button>
+                    <button id="btnno" class="button" style="margin-left: 10%;" onclick="cancel('Cancel')">
+                        Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
